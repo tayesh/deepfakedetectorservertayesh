@@ -34,7 +34,7 @@ class Densenet121_Builder(nn.Module):
 def load_model():
     try:
         model = Densenet121_Builder(num_classes=2, use_pretrained=False)
-        checkpoint = torch.load('best_model.pth', map_location=torch.device('cpu'))
+        checkpoint = torch.load('finetuned_densenet121_binary.pth', map_location=torch.device('cpu'))
 
         state_dict = checkpoint.get('model_state_dict', checkpoint)
         model.load_state_dict(state_dict, strict=False)
